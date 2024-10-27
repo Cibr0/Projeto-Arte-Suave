@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastro | Arte Suave</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+           <div> <a href="../../index.html"><img class="logo" src="../../imgs/logoTransparente.png" alt=""></a> </div>
+        </nav>
+    </header>
+ 
+
+<main>
+    
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            <form id="cadastro">
+                <h1>Cadastre-se</h1>
+                <span>Insira seus dados para realizar o cadastro.</span>
+                <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
+                <input type="text" name="cpf" id="cpf" placeholder="CPF" required>
+                <input type="number" name="idade" id="idade" placeholder="Idade" pattern="\d+" required>
+                <input type="tel" name="telefone" id="telefone" placeholder="Telefone" required pattern="[0-9]{10,14}" title="Digite um número de celular válido">
+                <input type="text" name="endereco" id="endereco" placeholder="Endereço" required>
+                <input type="text" name="vencimento" id="vencimento" placeholder="Dia de vencimento" required>
+                <input type="text" name="historico" id="historico" placeholder="Histórico de lesão" required>
+                <input type="tel" name="emergencia" id="emergencia" placeholder="Número de emergência" required pattern="[0-9]{10,14}" title="Digite um número de celular válido">
+                <button type="button" id="botao-proximo" disabled onclick="cadastro_cliente()">Finalizar</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right">
+                    <h1>Finalize seu cadastro!</h1>
+                    <p>Cadastre-se para aproveitar todos os recursos da plataforma!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    <script src="cadastro.js"></script>
+</body>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="../../firebase-init.js"></script>
+</html>
+
+
+
+
+

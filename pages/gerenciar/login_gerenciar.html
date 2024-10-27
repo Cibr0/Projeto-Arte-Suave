@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<!--SIM EU FIZ TUDO NA MESMA PAGINA PRA POLPAR TEMPO, NÃO RECLAMA!-->
+<head>
+    <title>Acesso | Arte Suave</title>
+    <meta charset="UTF-8">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #272727;
+    height: 12vh;
+}
+
+        .logo{
+        height: 70px; 
+        display: flex; 
+        align-items: center; 
+        margin-right: 173.9vh;
+        }
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        a {
+            color: #FDFDFD;
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-list li {
+            letter-spacing: 3px;
+            margin-left: 32px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+            padding: 40px;
+            width: 100%;
+            max-width: 550px;
+            margin: auto; /* Centraliza horizontalmente */
+            margin-top: 150px; /* Espaço acima */
+            position: relative;
+            z-index: 1;
+            flex: 1; /* Permite que o container utilize o espaço restante */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center; /* Centraliza horizontalmente */
+            max-height: 70%;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        input {
+            background-color: #eee;
+            border: none;
+            margin: 8px 0;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            width: 100%;
+            outline: none;
+        }
+
+        button {
+            background-color: #D42A31;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <img class="logo" src="../../imgs/logoTransparente.png" alt="">
+            </div>
+            <ul class="nav-list">
+                <li><a href="../home/home.html"><img src="../../icons/back-arrow.png" alt="" width="20px" height="20px"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Digite a Senha para Acessar a Página Gerenciar</h2>
+        <input type="password" id="password" placeholder="Senha">
+        <button id="submit">Acessar</button>
+        <p class="error" id="error-message" style="display:none;"></p>
+    </div>
+
+    <script>
+        const correctPassword = "artesuave2024"; // Defina a senha correta aqui
+
+        document.getElementById('submit').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password').value;
+
+            if (passwordInput === correctPassword) {
+                window.location.href = 'index.html'; // Redireciona para a página Gerenciar
+            } else {
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = 'Senha incorreta. Tente novamente.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

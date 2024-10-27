@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações | Arte Suave</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav>
+        <img class="logo" src="../../imgs/logoTransparente.png" alt="Logo">
+        <ul class="nav-list">
+            <li><a href="atualizar_perfil/index.html">Atualizar Informações</a></li>
+            <li><a href="../home/home.html"><img src="../../icons/back-arrow.png" alt="" width="20px" height="20px"></a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 id="info">Suas Informações</h1>
+        <div id="user-info">
+            <p><strong>Nome:</strong> <span id="user-name"></span></p>
+            <p><strong>CPF:</strong> <span id="user-cpf"></span></p>
+            <p><strong>Idade:</strong> <span id="user-idade"></span></p>
+            <p><strong>Telefone:</strong> <span id="user-telefone"></span></p>
+            <p><strong>Endereço:</strong> <span id="user-endereco"></span></p>
+            <p><strong>Histórico:</strong> <span id="user-historico"></span></p>
+            <p><strong>Emergência:</strong> <span id="user-emergencia"></span></p>
+            <p><strong>Vencimento:</strong> <span id="user-vencimento"></span></p>
+        </div>
+    </div>
+
+    <!-- Utilizando módulos ES6 para carregar o Firebase -->
+    <script type="module">
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCS5hq2rYTti6Jxjul_jlDnBE11hlXVxvk",
+            authDomain: "site-ong-6a58f.firebaseapp.com",
+            projectId: "site-ong-6a58f",
+            storageBucket: "site-ong-6a58f.appspot.com",
+            messagingSenderId: "844095312010",
+            appId: "1:844095312010:web:51cbdc93ad47bd02cddd73"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Função para mostrar as informações do usuário
+        function showUserInfo(userId) {
+            const userRef = doc(db, "usuarios", userId);
+            getDoc(userRef).then(docSnap => {
+                if (docSnap.exists()) {
+                    const userData = docSnap.data();
+                    document.getElementById('user-name').innerText = userData.nome;
+                    document.getElementById('user-cpf').innerText = userData.cpf;
+                    document.getElementById('user-idade').innerText = userData.idade;
+                    document.getElementById('user-telefone').innerText = userData.telefone;
+                    document.getElementById('user-endereco').innerText = userData.endereco;
+                    document.getElementById('user-historico').innerText = userData.historico;
+                    document.getElementById('user-emergencia').innerText = userData.emergencia;
+                    document.getElementById('user-vencimento').innerText = userData.vencimento;
+                } else {
+                    console.log("Usuário não encontrado");
+                }
+            }).catch(error => {
+                console.log("Erro ao carregar dados:", error);
+            });
+        }
+
+        // Verifica se o usuário está logado
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // Quando o usuário estiver logado, mostra suas informações
+                showUserInfo(user.uid);
+            } else {
+                console.log("Usuário não está autenticado");
+            }
+        });
+    </script>
+</body>
+</html>

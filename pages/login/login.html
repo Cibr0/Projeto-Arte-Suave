@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Acesso Interno | Arte Suave</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div> <a href="../../index.html"><img class="logo" src="../../imgs/logoTransparente.png" alt=""></a> </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" id="container">
+            <div class="form-container sign-up">
+                <form>
+                    <h1>Faça seu cadastro</h1>
+                    <span>Realize seu cadastro abaixo</span>
+                    <input type="email" name="email" id="email_register" placeholder="Email" required />
+                    <input type="password" name="password" id="password_register" placeholder="Senha" required />
+                    <input type="text" id="code" placeholder="Digite o código de aluno" oninput="checkCode()" required />
+                    <button type="button" id="registerButton" disabled onclick="register()">Próximo</button>
+                </form>
+            </div>
+            <div class="form-container sign-in">
+                <form>
+                    <h1>Arte Suave</h1>
+                    <span>Realize seu login abaixo</span>
+                    <input type="email" name="email" id="email" placeholder="Email" required />
+                    <input type="password" name="password" id="password" placeholder="Senha" required />
+                    <a href="#" onclick="recoverPassword()">Esqueceu sua senha?</a>
+                    <button type="button" onclick="login()">Entrar</button>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>Cadastre-se</h1>
+                        <p>Insira seus dados para realizar o cadastro.</p>
+                        <button class="hidden" id="login">Voltar</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>Bem-vindo!</h1>
+                        <p>Ainda não tem cadastro? Clique abaixo e crie sua conta agora.</p>
+                        <button class="hidden" id="register">Fazer cadastro</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="../../firebase-init.js"></script>
+
+</html>

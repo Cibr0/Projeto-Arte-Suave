@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Gerenciar | Arte Suave</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <!-- Script para proteger as pages -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCS5hq2rYTti6Jxjul_jlDnBE11hlXVxvk",
+            authDomain: "site-ong-6a58f.firebaseapp.com",
+            projectId: "site-ong-6a58f",
+            storageBucket: "site-ong-6a58f.appspot.com",
+            messagingSenderId: "844095312010",
+            appId: "1:844095312010:web:51cbdc93ad47bd02cddd73"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Verificar se o usuário está logado
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log('Usuário logado', user);
+                // Usuário logado, continua na página
+            } else {
+                console.log('Usuário não logado');
+                // Se não estiver logado, redireciona para o login
+                window.location.href = '../../index.html';
+            }
+        });      
+    </script>
+
+</head>
+<header>
+    <nav>
+       <div> <img class="logo" src="../../imgs/logoTransparente.png" alt=""> </div>
+       <ul class="nav-list" >
+            <li><a href="../gerenciar/index.html" class="home">Gerenciar</a></li>
+            <li><a href="../home/home.html"><img src="../../icons/back-arrow.png" alt="" width="20px" height="20px"></a></li>
+       </ul>
+    </nav>
+</header>
+<body>
+    <input class="search" type="text" id="searchInput" placeholder="Pesquisar usuário..." style="margin-bottom: 20px;">
+    <div id="userCount"></div>
+    <ol id="users"></ol>
+</body>
+
+
+<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+<script src="../../firebase-init.js"></script>
+<script src="index.js"></script>
+
+</html>

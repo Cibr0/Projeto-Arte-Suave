@@ -1,0 +1,111 @@
+*{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a{
+            color: #FDFDFD;
+            text-decoration: none;
+        }
+
+        a:hover{
+            opacity: 0.7;
+        }
+
+        main{
+            display: flex;
+        }
+
+        .logo{
+            height: 70px; 
+            display: flex; 
+            align-items: center; 
+            margin-right: 173.9vh;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #272727;
+            height: 12vh;
+        }
+
+        .nav-list{
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-list li {
+            letter-spacing: 3px;
+            margin-left: 32px;
+        }
+
+        .container {
+            display: flex;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 550px;
+            border-radius: 20px;
+            border: 1px solid #272727; 
+            background-color: transparent;
+            flex-direction: column;
+        }
+
+        .caixa {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .titulo {
+            font-size: 20px;
+            padding: 30px;
+            color: #D42A31;
+        }
+
+        form {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px; 
+            width: 100%; 
+            max-width: 600px; 
+            margin: 30px;
+        }
+
+        .btn{
+            border-radius: 10px;
+            padding: 10px 40px;
+            background-color: #D42A31;
+            color: #FDFDFD;
+            border: #FDFDFD;
+            font-size: 15px;
+        }
+
+        .btn:hover{
+            background-color: #a41e23;
+        }
+
+        h4{
+            color: #272727;
+        }
+
+        input{
+            border-radius: 5px;
+            border: 1px solid #6e6e6e;
+            background-color: none;
+            width: 250px;
+            height: 25px;
+            padding: 10px;
+            outline: none;
+        }
+
+        .obs{
+            margin-top: 14px;
+        }

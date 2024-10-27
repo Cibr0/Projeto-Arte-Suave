@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Home | Arte Suave</title>
+
+    <!-- Script para proteger as pages -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCS5hq2rYTti6Jxjul_jlDnBE11hlXVxvk",
+            authDomain: "site-ong-6a58f.firebaseapp.com",
+            projectId: "site-ong-6a58f",
+            storageBucket: "site-ong-6a58f.appspot.com",
+            messagingSenderId: "844095312010",
+            appId: "1:844095312010:web:51cbdc93ad47bd02cddd73"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Verificar se o usuário está logado
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log('Usuário logado', user);
+                // Usuário logado, continua na página
+            } else {
+                console.log('Usuário não logado');
+                // Se não estiver logado, redireciona para o login
+                window.location.href = '../../index.html';
+            }
+        });
+
+        // Função para logout
+        function logout() {
+            signOut(auth).then(() => {
+                console.log('Usuário deslogado');
+                window.location.href = '../../index.html'; // Redireciona para a página de login
+            }).catch((error) => {
+                console.error('Erro ao deslogar: ', error);
+            });
+        }
+
+        // Adiciona evento de logout ao botão
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('logout-btn').addEventListener('click', logout);
+        });
+    </script>
+
+</head>
+<body>
+    <header>
+        <nav>
+           <div> 
+               <img class="logo" src="../../imgs/logoTransparente.png" alt=""> 
+           </div>
+           <ul class="nav-list">
+                <li><a href="#sobre" class="home">Home</a></li>
+                <li><a href="../pagamentos-mensalidade/index.html">Pagamentos</a></li>
+                <li><a href="../gerenciar/login_gerenciar.html">Gerenciar</a></li>
+                <li><a href="../perfil/index.html">Usuário</a></li>
+                <li><a href="#" id="logout-btn">Sair</a></li> <!-- Botão de logout -->
+           </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="titulo">
+            <h1 class="h1">Olá, Bem-vindo(a) à sua home page.</h1>
+        </div>
+    </main>
+
+</body>
+</html>

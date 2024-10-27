@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Arte Suave</title>
+</head>
+<body>
+    <header>
+        <nav>
+           <div> <img class="logo" src="imgs/logoTransparente.png" alt=""> </div>
+           <ul class="nav-list" >
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#doe">Doe Agora</a></li>
+                <li><a href="pages/login/login.html">Acesso interno</a></li>
+           </ul>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img id="slide-1" src="imgs/foto1.png" />
+                <img id="slide-2" src="imgs/foto2.png" />
+                <img id="slide-3" src="imgs/foto3.png" />
+            </div>
+            <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+            </div>
+            <button class="arrow left" onclick="document.querySelector('.slider').scrollBy({ left: -window.innerWidth, behavior: 'smooth' })"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow right" onclick="document.querySelector('.slider').scrollBy({ left: window.innerWidth, behavior: 'smooth' })"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </section>
+    
+    
+    
+    <main>
+        
+        <br>
+        <br>
+        <br>
+
+            <section id="sobre">
+            <h2 class="title-sobre" >Sobre o Projeto Arte Suave</h2>
+            <div class="conteudo" >
+            <div class="sobre" >
+                <h2> <img class="img-sobre" src="imgs/logo.png" alt=""> </h2>
+            </div>
+
+            <div class="container-text-sobre" >
+                <p class="text-sobre" >A ONG Arte Saúde desenvolve um projeto de Jiu-Jitsu voltado <br> para a inclusão social, promovendo a disciplina e o bem-estar <br> físico e mental de crianças e adolescentes em situação de <br> vulnerabilidade. Por meio da arte marcial, os participantes <br> aprendem valores como respeito, autocontrole e superação, além <br> de melhorar suas condições de saúde e cidadania. A iniciativa visa <br> não apenas formar atletas, mas também cidadãos conscientes <br> e preparados para enfrentar desafios da vida.</p>
+            </div>
+        </div>
+    </section>
+        <div class="linha" ></div>
+            
+        <section id="projetos" >
+        <div class="projetos" >
+
+
+            <div class="projeto1">
+            <div class="projeto1-conteudo-txt" >
+                <h2 class="titulo-projeto1">Jiu-Jitsu</h2> <br>
+                <p class="texto-projeto1" >A ONG Arte Saúde desenvolve um projeto de <br> Jiu-Jitsu voltado para a inclusão social, <br> promovendo a disciplina e o bem-estar físico <br> e mental de crianças e adolescentes em  <br> situação de vulnerabilidade. Por meio da arte <br> marcial, os participantes aprendem valores <br> como respeito, autocontrole e superação, <br> além de melhorar suas condições de saúde e <br> cidadania. A iniciativa visa não apenas formar <br> atletas, mas também cidadãos conscientes e <br> preparados para enfrentar desafios da vida.</p>
+            </div>
+
+            <div><img class="img-projeto1" src="imgs/foto1.png" alt=""></div>
+        </div>
+
+        <div class="projeto1">
+            <div class="projeto1-conteudo-txt" >
+                <h2 class="titulo-projeto1">Sopão</h2> <br>
+                <p class="texto-projeto1" >A ONG Arte Saúde desenvolve um projeto de <br> Jiu-Jitsu voltado para a inclusão social, <br> promovendo a disciplina e o bem-estar físico <br> e mental de crianças e adolescentes em  <br> situação de vulnerabilidade. Por meio da arte <br> marcial, os participantes aprendem valores <br> como respeito, autocontrole e superação, <br> além de melhorar suas condições de saúde e <br> cidadania. A iniciativa visa não apenas formar <br> atletas, mas também cidadãos conscientes e <br> preparados para enfrentar desafios da vida.</p>
+            </div>
+
+            <div><img class="img-projeto1" src="imgs/foto2.png" alt=""></div>
+        </div>
+        </div>
+
+        <div class="projeto1">
+            <div class="projeto1-conteudo-txt" >
+                <h2 class="titulo-projeto1">Mutirão para realização <br> de documentos</h2> <br>
+                <p class="texto-projeto1" >A ONG Arte Saúde desenvolve um projeto de <br> Jiu-Jitsu voltado para a inclusão social, <br> promovendo a disciplina e o bem-estar físico <br> e mental de crianças e adolescentes em  <br> situação de vulnerabilidade. Por meio da arte <br> marcial, os participantes aprendem valores <br> como respeito, autocontrole e superação, <br> além de melhorar suas condições de saúde e <br> cidadania. A iniciativa visa não apenas formar <br> atletas, mas também cidadãos conscientes e <br> preparados para enfrentar desafios da vida.</p>
+            </div>
+
+            <div><img class="img-projeto1" src="imgs/foto3.png" alt=""></div>
+        </div>
+        </div>
+
+        </div>
+    </section>
+       
+    <section id="doe">
+        <div class="container" >
+            <div class="conteudo2" >
+            <div class="sobre" >
+                <h2> <img class="img-qr" src="imgs/logo.png" alt=""> </h2>
+            </div>
+
+            <div class="container-text-qr" >
+                <h2 class="h2-qr" >Ajude o Arte Suave!</h2> <br>
+                <p class="text-qr" >Dependemos exclusivamente de <br> pessoas solidárias como você <br> para financiar nossas atividades e <br> garantir nossa independência.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    </main>
+    
+
+
+    <footer>
+        <div class="footer-container">
+
+            <div> <img class="logo-footer" src="imgs/logoTransparente.png" alt=""> </div>
+
+            
+            <div class="text-footer" ><h3>Contato</h3>  <p>Rua Capetinga, Nº 679, Paulista 53429120 <br> Telefone - (81)3948294 <br> Email - email@gmail.com</p></div>
+
+            <div>
+                <h3 class="redes-footer" >Redes Sociais</h3> <br>
+                <div class="icons" >
+                <a href="#"><i class="fa-brands fa-instagram" style="color: #d42a31;" ></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp" style="color: #d42a31;" ></i></a>
+            </div>
+            </div>
+
+        </div>
+    </footer>
+    <button id="backToTop" style="display:none;"><i class="fa-solid fa-arrow-up"></i></button>
+    <script src="backtotop.js"></script>
+</body>
+</html>

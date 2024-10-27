@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+a{
+    color: #FDFDFD;
+    text-decoration: none;
+}
+a:hover{
+    opacity: 0.7;
+}
+
+.logo{
+    height: 70px; 
+    display: flex; 
+    align-items: center; 
+    margin-right: 151vh;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #272727;
+    height: 12vh;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+.h1{
+    color: #D42A31;
+    
+    text-align: center;
+}
+.titulo{
+    padding: 50px;
+}
+.home{
+    opacity: 0.7;
+    
+}
+.pagamentos{
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    color: #000; 
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #D42A31; 
+    transition: width 0.3s ease;
+  }
+  
+  .btn:hover::after {
+    width: 100%;
+  }
+  
+  .btn:hover {
+    color: #D42A31; 
+  }
+.btn-selec {
+  background-color: transparent;
+  border: none;
+  color: #D42A31; 
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: default; 
+  position: relative;
+}
+
+.btn-selec::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; 
+  height: 2px;
+  background-color: #D42A31; 
+}

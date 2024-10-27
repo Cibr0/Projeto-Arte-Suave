@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Informações | Arte Suave</title>
+    
+    <!-- Google Font Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div> <img class="logo" src="../../../imgs/logoTransparente.png" alt=""> </div>
+        <ul class="nav-list" >
+            <li><a href="../../perfil/index.html"><img src="../../../icons/back-arrow.png" alt="" width="20px" height="20px"></a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="container">
+        <div class="caixa">
+            <br><br><br>
+            <div class="titulo"><h1>Atualizar dados</h1></div>  
+             
+            <form id="update-form">
+                <div>
+                    <h4>Nome</h4>
+                    <input type="text" name="nome" id="nome"  required>
+                    
+                    <h4>CPF</h4>
+                    <input type="text" name="cpf" id="cpf"  required>
+                    
+                    <h4>Telefone</h4>
+                    <input type="tel" name="telefone" id="telefone"  required pattern="[0-9]{10,14}" title="Digite um número de celular válido">
+                    
+                    <h4>Endereço</h4>
+                    <input type="text" name="endereco" id="endereco"  required>
+                </div>
+
+                <div>
+                    <h4>Idade</h4>
+                    <input type="number" name="idade" id="idade" pattern="\d+" required>
+
+                    <h4>Histórico de lesão</h4>
+                    <input type="text" name="historico" id="historico"  required>
+
+                    <h4>Emergência</h4>
+                    <input type="tel" name="emergencia" id="emergencia"  required pattern="[0-9]{10,14}" title="Digite um número de celular válido">
+
+                    <h4>Vencimento</h4>
+                    <input type="text" name="vencimento" id="vencimento"  required>
+                </div>
+            </form>
+            
+            <br>
+            <button class="btn" id="update-button" disabled>Atualizar</button>
+            <label class="obs">Todos os campos devem estar preenchidos para realizar a atualização.</label>
+
+        </div>
+    </div>
+</main>
+
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js';
+    import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js';
+    import { getFirestore, doc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js';
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCS5hq2rYTti6Jxjul_jlDnBE11hlXVxvk",
+        authDomain: "site-ong-6a58f.firebaseapp.com",
+        projectId: "site-ong-6a58f",
+        storageBucket: "site-ong-6a58f.appspot.com",
+        messagingSenderId: "844095312010",
+        appId: "1:844095312010:web:51cbdc93ad47bd02cddd73"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    let currentUser = null;
+    const updateButton = document.getElementById("update-button");
+    const form = document.getElementById("update-form");
+
+    // Verifica se todos os campos estão preenchidos e habilita o botão
+    function checkFormValidity() {
+        const allValid = Array.from(form.elements).every(input => input.checkValidity());
+        updateButton.disabled = !allValid;
+    }
+
+    // Adiciona o evento 'input' em todos os campos do formulário
+    Array.from(form.elements).forEach(input => {
+        input.addEventListener('input', checkFormValidity);
+    });
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            currentUser = user;
+            loadUserData(user.uid);
+        } else {
+            alert("Você precisa estar logado para acessar esta página.");
+            window.location.href = "login.html";
+        }
+    });
+
+    async function loadUserData(uid) {
+        const userRef = doc(db, "usuarios", uid);
+        const userDoc = await getDoc(userRef);
+        
+        if (userDoc.exists()) {
+            const data = userDoc.data();
+            document.getElementById("nome").value = data.nome;
+            document.getElementById("cpf").value = data.cpf;
+            document.getElementById("telefone").value = data.telefone;
+            document.getElementById("endereco").value = data.endereco;
+            document.getElementById("idade").value = data.idade;
+            document.getElementById("historico").value = data.historico;
+            document.getElementById("emergencia").value = data.emergencia;
+            document.getElementById("vencimento").value = data.vencimento;
+
+            // Verificar a validade dos campos após o carregamento dos dados
+            checkFormValidity();
+        } else {
+            alert("Erro ao carregar dados. Tente novamente mais tarde.");
+        }
+    }
+
+    updateButton.addEventListener("click", async () => {
+        if (currentUser) {
+            try {
+                const userRef = doc(db, "usuarios", currentUser.uid);
+                await updateDoc(userRef, {
+                    nome: document.getElementById("nome").value,
+                    cpf: document.getElementById("cpf").value,
+                    telefone: document.getElementById("telefone").value,
+                    endereco: document.getElementById("endereco").value,
+                    idade: document.getElementById("idade").value,
+                    historico: document.getElementById("historico").value,
+                    emergencia: document.getElementById("emergencia").value,
+                    vencimento: document.getElementById("vencimento").value
+                });
+
+                alert("Dados atualizados com sucesso!");
+            } catch (error) {
+                alert("Erro ao atualizar dados. Tente novamente.");
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
